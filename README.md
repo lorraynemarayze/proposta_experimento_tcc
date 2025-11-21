@@ -4,7 +4,7 @@
 
 ### 1.1 Título do experimento
 
-Impacto de Falhas de Software na Segurança Operacional Aeronáutica: Uma Análise Empírica
+Impacto de Falhas de Software na Segurança Operacional Aeronáutica: Um Experimento Empírico Baseado em Relatos de Incidentes
 
 ### 1.2 ID / código
 
@@ -32,7 +32,9 @@ Lorrayne Marayze Silva de Oliveira
 
 ### 1.7 Projeto / produto relacionado
 
-Este experimento está relacionado ao pré-desenvolvimento do Trabalho de Conclusão de Curso (TCC) do curso de Engenharia de Software para a disciplina de Medição e Experimentação de Software, com foco na análise empírica do impacto de falhas de software na segurança operacional aeronáutica, utilizando dados dos bancos ASRS e ECCAIRS.
+Este documento descreve um experimento controlado de Engenharia de Software, desenvolvido no contexto da disciplina Medição e Experimentação de Software. O objetivo do experimento é investigar empiricamente como falhas de software contribuem para incidentes aeronáuticos, utilizando dados reais provenientes dos bancos internacionais ASRS e ECCAIRS.
+
+A proposta define o desenho experimental, as variáveis analisadas e os procedimentos necessários para coletar, classificar e medir ocorrências relacionadas a anomalias de software em operações de voo.
 
 ---
 
@@ -48,23 +50,22 @@ O problema central é a escassez de análises empíricas sistemáticas que ident
 
 ### **a) Domínio**
 
-O estudo se situa no domínio da segurança operacional aeronáutica, área que busca compreender, prevenir e mitigar eventos que possam comprometer a integridade de voo. Dentro desse contexto, o software passou a desempenhar um papel central. Sistemas que antes eram essencialmente mecânicos e eletromecânicos gradualmente foram substituídos ou complementados por funções computacionais, muitas delas altamente automatizadas e interdependentes.
-
-Grande parte dos sistemas críticos de bordo — como Flight Management Systems (FMS), autopilot e sistemas de navegação — depende de algoritmos que processam informações provenientes de diferentes sensores, calculam parâmetros de voo e atuam diretamente no controle da aeronave. Esses sistemas não atuam de forma isolada: o autopilot depende do FMS; o FMS depende de dados GNSS; os sistemas de proteção de envelope utilizam leituras de múltiplos instrumentos, como ângulo de ataque, velocidade e altitude.
+O estudo se situa no **domínio da segurança operacional** aeronáutica, área que busca compreender, prevenir e mitigar eventos que possam comprometer a integridade de voo. Dentro desse contexto, o software passou a desempenhar um papel central, sistemas que antes eram essencialmente mecânicos e eletromecânicos gradualmente foram substituídos ou complementados por funções computacionais, muitas delas altamente automatizadas e interdependentes. Grande parte dos sistemas críticos de bordo, como o _Flight Management Systems_ (FMS), autopilot e sistemas de navegação, dependem de algoritmos que processam informações provenientes de diferentes sensores, calculam parâmetros de voo e atuam diretamente no controle da aeronave. Esses sistemas não atuam de forma isolada: o autopilot depende do FMS; o FMS depende de dados _Global Navigation Satellite System_ (GNSS); os sistemas de proteção de envelope utilizam leituras de múltiplos instrumentos, como ângulo de ataque, velocidade e altitude.
 
 Essa interconexão cria um ambiente em que falhas aparentemente pequenas no software podem gerar impactos desproporcionais. Por exemplo, uma simples inconsistência de dados pode resultar em cálculos incorretos de performance ou na ativação inadequada de proteções automáticas. Assim, garantir que o software opere de forma previsível, robusta e segura torna-se vital para a integridade do voo.
 
-Para gerenciar essa complexidade crescente, o setor aeronáutico desenvolveu normas rigorosas que orientam todas as fases do ciclo de vida do software. A DO-178C estabelece critérios de desenvolvimento, verificação e certificação baseados no nível de criticidade da função, garantindo que sistemas com potencial de risco catastrófico recebam maior rigor. A ARP-4754A fornece diretrizes para o desenvolvimento integrado de sistemas, destacando a necessidade de alinhamento entre software, hardware e requisitos operacionais. Já a DO-330 complementa esses processos ao definir o padrão para ferramentas utilizadas na verificação de software crítico.
+Para gerenciar essa complexidade crescente, foi desenvolvido normas que orientam todas as fases do ciclo de vida do software:
+* **DO-178C** estabelece critérios de desenvolvimento, verificação e certificação baseados no nível de criticidade da função, garantindo que sistemas com potencial de risco catastrófico recebam maior rigor.
+* **ARP-4754A** fornece diretrizes para o desenvolvimento integrado de sistemas, destacando a necessidade de alinhamento entre software, hardware e requisitos operacionais.
+* **DO-330** complementa esses processos ao definir o padrão para ferramentas utilizadas na verificação de software crítico.
 
-Nesse domínio, portanto, analisamos não apenas os sistemas individualmente, mas a forma como a engenharia de software, a certificação e a operação real se conectam para preservar a segurança operacional.
+Nesse domínio, portanto, será analisado não apenas os sistemas individualmente, mas a forma como a engenharia de software, a certificação e a operação real se conectam para preservar a segurança operacional.
 
 ### **b) Ambiente**
 
-A aviação moderna opera em um ambiente altamente dinâmico, onde o desempenho seguro depende da interação contínua entre humanos, máquinas, sensores e algoritmos. O cockpit contemporâneo é um ecossistema sofisticado, no qual diferentes softwares executam tarefas simultâneas, trocam informações e ajustam parâmetros em tempo real.
+A aviação moderna opera em um ambiente altamente dinâmico, onde o desempenho seguro depende da interação contínua entre humanos, máquinas, sensores e algoritmos. O _cockpit_ (cabine do piloto) contemporâneo é um ecossistema sofisticado, no qual diferentes softwares executam tarefas simultâneas, trocam informações e ajustam parâmetros em tempo real.
 
-Nesse ambiente, o software atua como “cérebro digital” da aeronave, interpretando dados brutos de sensores, filtrando informações, detectando anomalias e apoiando pilotos em decisões críticas. Contudo, essa sofisticação também implica vulnerabilidades: uma falha de software pode se propagar rapidamente e se manifestar em múltiplos sistemas interligados.
-
-Assim, incidentes relacionados a software podem surgir de diversos cenários operacionais, como:
+Nesse ambiente, o software atua como “cérebro digital” da aeronave, interpretando dados brutos de sensores, filtrando informações, detectando anomalias e apoiando pilotos em decisões críticas. Contudo, essa sofisticação também implica vulnerabilidades: uma falha de software pode se propagar rapidamente e se manifestar em múltiplos sistemas interligados. Assim, incidentes relacionados a software podem surgir de diversos cenários operacionais, como:
 
 * discrepâncias momentâneas entre sensores que levam o piloto automático a emitir comandos divergentes,
 
@@ -74,7 +75,7 @@ Assim, incidentes relacionados a software podem surgir de diversos cenários ope
 
 * falhas de lógica em algoritmos de proteção que ativam alertas desnecessários ou deixam de disparar alertas essenciais.
 
-Além disso, o ambiente operacional não é uniforme. As bases analisadas incluem relatos de diferentes contextos, como:
+Além disso, o ambiente operacional não é uniforme. Por isso, as bases de dados que serão analisadas incluem relatos em diferentes contextos, como:
 
 * aviação comercial, com alta automatização e rotinas padronizadas;
 
@@ -88,19 +89,19 @@ Nesse cenário complexo e interconectado, compreender como falhas de software su
 
 ### **c) Equipes**
 
-O desenvolvimento, operação e investigação de falhas de software aeronáutico envolvem um ecossistema multidisciplinar. Cada grupo contribui para diferentes etapas do ciclo de vida do software e para a compreensão dos incidentes reportados.
+O desenvolvimento, operação e investigação de falhas de software aeronáutico envolvem um ecossistema multidisciplinar, onde cada grupo contribui para diferentes etapas do ciclo de vida do software e para a compreensão dos incidentes reportados:
 
-** Engenheiros de software aeronáutico**
+** Engenheiros de software**
 São responsáveis pela implementação de funções críticas, seguindo padrões rigorosos de desenvolvimento como DO-178C. Eles precisam garantir rastreabilidade, requisitos verificáveis e processos de teste formais. Seu trabalho influencia diretamente a confiabilidade dos sistemas embarcados.
 
 ** Equipes de certificação e conformidade**
-Compostas por especialistas internos e externos (Designated Engineering Representatives – DERs), essas equipes avaliam se o software atende às normas e práticas de segurança. No contexto da pesquisa, elas fornecem a ponte entre o desenvolvimento e a operação, muitas vezes participando da análise pós-incidente.
+Compostas por especialistas internos e externos (Designated Engineering Representatives – DERs), essas equipes avaliam se o software atende às normas e práticas de segurança. 
 
 ** Pilotos, despachantes operacionais e operadores**
 São a linha de frente na observação de falhas. Por lidarem diretamente com os sistemas em condições reais de voo, os relatos voluntários (como os enviados ao ASRS) capturam comportamentos que dificilmente seriam reproduzidos em laboratório ou testes de certificação.
 
 ** Analistas de segurança operacional**
-Profissionais dedicados à análise de tendências, identificação de riscos e construção de recomendações sistêmicas. Eles utilizam bancos de dados internacionais para detectar padrões de falhas, e seu trabalho é chave para contextualizar incidentes envolvendo software.
+Profissionais dedicados à análise de tendências, identificação de riscos e construção de recomendações sistêmicas. Eles utilizam bancos de dados internacionais para detectar padrões de falhas, e seu trabalho é importante para ajudar a para contextualizar incidentes envolvendo software.
 
 ** Órgãos reguladores (ANAC, FAA, EASA, ICAO)**
 Criam diretrizes, supervisionam investigações e definem requisitos para mitigação de riscos. Também mantêm e alimentam bases de dados que permitem acessar relatos estruturados de anomalias em sistemas aeronáuticos.
@@ -113,11 +114,11 @@ A pesquisa se situa no cruzamento entre tecnologia embarcada, engenharia de soft
 
 #### Metodologias de desenvolvimento seguro
 
-Abordagens como o **V-Model** e processos **waterfall** rigorosos são amplamente utilizados na aviação devido à previsibilidade e rastreabilidade. Esses métodos estruturam o desenvolvimento em fases sequenciais, com foco forte em verificação e documentação, permitindo identificar falhas sistematicamente.
+Abordagens como o **V-Model** e o processo **waterfall** são rigorosos e amplamente utilizados na aviação devido à previsibilidade e rastreabilidade. Esses métodos estruturam o desenvolvimento em fases sequenciais, com foco forte em verificação e documentação, permitindo identificar falhas sistematicamente.
 
 #### Adoção gradual de práticas modernas (CI/CD, automação de testes)
 
-Embora menos comuns em sistemas críticos embarcados, práticas de DevOps começam a aparecer em softwares aeronáuticos não embarcados — como EFBs, sistemas de manutenção e ferramentas de suporte. Parte da literatura discute como essas práticas poderiam coexistir com requisitos da DO-178C, um aspecto conectado à análise de falhas reais.
+Embora menos comuns em sistemas críticos embarcados, práticas de DevOps começam a aparecer em softwares aeronáuticos não embarcados, como EFBs (Electronic flight bag, dispositivo eletrônico de gerenciamento de informações), sistemas de manutenção e ferramentas de suporte. Parte da literatura discute como essas práticas poderiam coexistir com requisitos da DO-178C, um aspecto conectado à análise de falhas reais.
 
 #### Tecnologias embarcadas e ferramentas certificáveis
 
@@ -141,23 +142,24 @@ Vários estudos prévios indicam que a complexidade do software aeronáutico vem
 
 #### Trabalhos sobre certificação e padrões (DO-178C, ARP-4754A)
 
-A maior parte da literatura foca nos frameworks de desenvolvimento e certificação. São estudos mais teóricos, que descrevem procedimentos, mas raramente apresentam dados empíricos sobre falhas ocorridas em operação.
+A maior parte da literatura foca nos frameworks de desenvolvimento e certificação. São estudos mais teóricos, que descrevem procedimentos, mas raramente apresentam dados empíricos sobre falhas ocorridas em operação. A principal documentação que rege o desenvolvimento (e.g., RTCA/DO-178C, SAE ARP-4754A) estabelece o rigor, mas a garantia de segurança é baseada primariamente na conformidade do processo. Autores como Rushby (2009) discutem a insuficiência da conformidade processual para garantir a segurança no sentido mais amplo. Mesmo na Engenharia de Software Empírica mais recente, o foco é em processos de desenvolvimento (e.g., integração de metodologias ágeis em ambientes críticos, Tordrup Heeager & Nielsen, 2020), e não na análise de falhas operacionais do produto final.
 
 #### Pesquisas sobre automação de voo e dependência de software
 
-Há publicações analisando casos de acidentes e incidentes envolvendo automação excessiva ou confusão do piloto diante de comportamentos inesperados do software. Ainda assim, muitas dessas análises são pontuais, focadas em eventos isolados.
+Há publicações analisando casos de acidentes e incidentes envolvendo automação excessiva ou confusão do piloto diante de comportamentos inesperados do software. O trabalho seminal de Sarter & Woods (1997) e as análises de Degani (2004) destacam a opacidade e a complexidade da automação de cabine. Além disso, a literatura recente aponta para a importância de investigar falhas em aviônicos digitais e a relação com vulnerabilidades sistêmicas (Kaspersky, 2025). Ainda assim, muitas dessas análises são pontuais, focadas em eventos isolados ou na interação humana, sem classificar as falhas de software de forma sistemática a partir de grandes bases de dados.
 
 #### Estudos sobre fatores humanos e interação homem–máquina
 
-Alguns trabalhos destacam que erros atribuídos ao piloto às vezes têm origens em interfaces mal projetadas, mensagens ambíguas ou automatismos não intuitivos. Esse tipo de evidência reforça a importância de analisar relatos operacionais para identificar padrões de falhas.
+Alguns trabalhos destacam que erros atribuídos ao piloto às vezes têm origens em interfaces mal projetadas, mensagens ambíguas ou automatismos não intuitivos. Modelos amplamente utilizados, como o HFACS, frequentemente atribuem a origem de falhas de design de software à categoria de 'condições latentes' (Latent Failures) ou 'erros de decisão' do piloto, conforme demonstrado em análises de ASRS (e.g., Shappell & Wiegmann, 2004). Esse tipo de evidência reforça a importância de analisar relatos operacionais, mas demonstra que a taxonomia de falhas usada por esses estudos é focada em fatores humanos, e não na raiz da falha de software.
 
-#### Falta de pesquisas empíricas amplas
+#### Lacuna
 
-Apesar da existência de bancos como ASRS e ECCAIRS, poucos estudos fazem análises quantitativas e qualitativas combinadas especificamente sobre **falhas de software** — o que constitui uma lacuna claramente explorável no TCC.
-A literatura costuma focar mais em falhas mecânicas, eventos meteorológicos ou erros operacionais.
+Apesar da existência de bancos ricos como ASRS (Aviation Safety Reporting System) e ECCAIRS, poucos estudos realizam experimentações ou análises empíricas sistemáticas, quantitativas e qualitativas combinadas, especificamente sobre falhas de software, o que constitui uma lacuna a ser explorada.
 
-Existe conteúdo teórico robusto sobre normas e processos, mas **há pouca exploração de dados reais de incidentes envolvendo software**. Por isso, uma análise empírica baseada em bancos internacionais representa uma contribuição concreta e bem alinhada ao curso de Engenharia de Software.
+* Foco Principal da Literatura Empírica: A vasta maioria das análises empíricas que exploram ASRS/ECCAIRS tem foco em categorias tradicionais: erros operacionais de pilotos e controladores (Herr, 2025; Marx & Graeber, 1994), falhas de manutenção (Boeing, 2014) e eventos ambientais ou mecânicos.
+* A Superficialidade da Categoria 'Software': Embora o ASRS capture relatórios que mencionam problemas de software, a literatura costuma focar em falhas onde o software é apenas um fator contribuinte na cadeia de eventos, e não o objeto central da classificação empírica. A simples menção de um problema de software em um relato de incidente não constitui uma análise empírica de sua causa-raiz em termos de Engenharia de Software.
 
+Existe conteúdo teórico robusto sobre normas e processos, mas há pouca exploração experimental de dados reais de incidentes especificamente para criar uma taxonomia empírica de falhas de software e quantificar seu impacto. Por isso, a experimentação proposta, baseada em bancos internacionais e usando técnicas de Engenharia de Software Empírica para classificar as causas-raiz de falha do código/lógica a partir dos relatos, representa uma contribuição bem alinhada à Engenharia de Software e Segurança Operacional.
 
 ### 2.4 Referencial teórico
 
