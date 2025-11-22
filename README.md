@@ -17,6 +17,7 @@ Impacto de Falhas de Software na Segurança Operacional Aeronáutica: Um Experim
 | v1.0   | 21/11/2025 | Criação inicial do documento e definição do contexto. |
 | v2.0   | 22/11/2025 | Definição do escopo e objetivo. |
 | v2.1   | 22/11/2025 | Definição dos stakeholders e riscos. |
+| v2.2   | 22/11/2025 | Definição do desenho experimental, hipóteses, variáveis, etc. |
 
 
 ### 1.4 Datas
@@ -426,16 +427,49 @@ A execução poderá ser suspensa ou revista caso:
 
 ### 7.1 Modelo conceitual
 
-Relação entre fatores e respostas.
+| Categoria | Variável / Fator | Relação esperada |
+|----------|------------------|------------------|
+| Fatores principais | Tipo de falha (lógica, interface, dados, integração) | Pode afetar severidade, impacto e tipo de consequência operacional |
+| | Subsistema afetado (FMS, Autopilot, GNSS etc.) | Pode influenciar tipo de impacto e criticidade |
+| | Fase do voo | Pode alterar severidade e probabilidade de consequências |
+| | Causa-raiz | Relacionada à recorrência e padrões mais críticos |
+| Respostas | Severidade do incidente | Determinada pelo tipo e contexto da falha |
+| | Tipo de consequência operacional | Associado ao tipo de falha e subsistema |
+| | Impacto na operação da tripulação | Relacionado à fase de voo e natureza da falha |
+
+Certos fatores aumentam a probabilidade de as falhas se manifestarem de maneira mais severa ou mais disruptiva para a operação.
 
 ### 7.2 Hipóteses formais
 
-* H0: Hipótese nula
-* H1: Hipótese alternativa
+**Hipótese 1 – Tipo de falha → Severidade**
+* **H0₁:** Não há associação entre o tipo de falha de software e a severidade do incidente.
+* **H1₁:** Há associação entre o tipo de falha de software e a severidade do incidente.
+
+Direção esperada: falhas de lógica e integração tendem a produzir maior severidade.
+
+**Hipótese 2 – Subsistema → Consequência operacional**
+* **H0₂:** O subsistema afetado não influencia o tipo de consequência operacional.
+* **H1₂:** O subsistema afetado influencia o tipo de consequência operacional.
+* 
+Direção esperada: falhas em FMS e Autopilot tendem a gerar consequências mais disruptivas.
+
+**Hipótese 3 – Fase do voo → Impacto operacional**
+* **H0₃:** A fase do voo não está associada ao impacto operacional causado pela falha.
+* **H1₃:** A fase do voo está associada ao impacto operacional.
+  
+Direção esperada: falhas em aproximação e decolagem tendem a produzir impactos maiores.
 
 ### 7.3 Nível de significância e poder
 
-Ex.: α = 0,05 e justificativa do tamanho da amostra.
+* **Nível de significância (α): 0,05 -**
+Escolhido por ser o padrão em estudos empíricos exploratórios.
+
+* **Poder estatístico desejado: ≥ 0,80 -**
+O estudo buscará maximizar o número de relatos para atingir poder estatístico adequado.
+
+* **Considerações sobre tamanho da amostra:**
+O tamanho amostral é determinado pelo total de relatos disponíveis contendo falhas de software nas bases ASRS/ECCAIRS.
+Por ser um estudo observacional, será utilizada toda a amostra disponível, reduzindo erro amostral.
 
 ---
 
@@ -443,31 +477,64 @@ Ex.: α = 0,05 e justificativa do tamanho da amostra.
 
 ### 8.1 Objetos de estudo
 
-Elementos analisados (tarefas, código, issues etc.).
+| Objeto | Descrição |
+|--------|-----------|
+| Relatos de incidentes | Textos de ASRS/ECCAIRS contendo falhas de software |
+| Categorias/taxonomias | Classificação de tipos de falha, causas e consequências |
+| Variáveis codificadas | Atributos extraídos manualmente dos relatos |
+
 
 ### 8.2 Participantes
 
-Perfil dos sujeitos.
+| Participante | Caracterização |
+|--------------|----------------|
+| Pesquisador principal | Estudante de Engenharia de Software da PUC Minas, não especialista em aviação |
+| Avaliador secundário | Usado apenas para validação da codificação (Cohen’s Kappa) |
 
 ### 8.3 Variáveis independentes
 
-Fatores e seus níveis.
+| Variável (fator) | Tipo | Níveis / Valores |
+|------------------|------|------------------|
+| Tipo de falha | Nominal | lógica, interface, dados, integração |
+| Subsistema afetado | Nominal | FMS, Autopilot, GNSS, Displays, Sensores |
+| Fase do voo | Ordinal | Solo, Decolagem, Subida, Cruzeiro, Aproximação, Pouso |
+| Causa-raiz | Nominal | lógica, requisito, integração, dado inconsistente |
 
 ### 8.4 Tratamentos
 
-Condições experimentais.
+| Tratamento | Descrição |
+|------------|-----------|
+| T1 | Falhas de lógica em subsistemas críticos |
+| T2 | Falhas de interface em fases críticas do voo |
+| T3 | Erros de dados com impacto operacional percebido |
+| T4 | Falhas de integração com perda de automação |
 
 ### 8.5 Variáveis dependentes
 
-Resultados medidos.
+| Variável dependente | Tipo | Descrição |
+|---------------------|------|-----------|
+| Severidade | Ordinal | Grau de severidade do incidente |
+| Tipo de consequência | Nominal | Ex.: desvio, perda de função, alerta falso |
+| Impacto operacional | Ordinal | Aumento de carga de trabalho, confusão, etc. |
+| Probabilidade condicional | Numérica | P(consequência | tipo de falha) |
+| Recorrência | Numérica | Frequência de padrões de falha |
 
 ### 8.6 Variáveis de controle
 
-Variáveis mantidas constantes ou usadas como bloco.
+| Variável | Por que controlar |
+|----------|-------------------|
+| Período da coleta | Evita efeitos temporais |
+| Tipo de aeronave (grupo) | Diferenças entre modelos |
+| Região / base de dados | Diferenças ASRS × ECCAIRS |
 
 ### 8.7 Variáveis de confusão
 
-Fatores que podem distorcer resultados.
+| Variável | Risco para o experimento |
+|----------|---------------------------|
+| Clareza do relato | Pode dificultar a identificação da falha |
+| Experiência do piloto | Influencia a forma como descreve a ocorrência |
+| Linguagem técnica variada | Pode gerar inconsistências na codificação |
+| Diferenças entre bases | Estruturas distintas de dados |
 
 ---
 
@@ -475,19 +542,27 @@ Fatores que podem distorcer resultados.
 
 ### 9.1 Tipo de desenho
 
-Randomizado, blocos, fatorial etc.
+Desenho observacional e correlacional, com análise fatorial das combinações observadas. Adequado porque não há manipulação deliberada de variáveis e os dados são históricos.
 
 ### 9.2 Randomização
 
-O que será randomizado e como.
+Ainda que não exista randomização:
+* A ordem dos relatos para codificação será embaralhada aleatoriamente para minimizar viés de ordem.
+* A análise estatística usará toda a amostra, não exigindo alocação entre grupos.
 
 ### 9.3 Balanceamento e contrabalanço
 
-Técnicas para manter grupos comparáveis.
+* Grupos naturais (tipos de falha, fases etc.) podem ser desbalanceados, pois dependem da frequência real nas bases.
+* O desbalanceamento será quantificado e reportado como limitação.
+* Como não há tarefas sequenciais atribuídas a participantes humanos, contrabalanço não se aplica.
 
 ### 9.4 Número de grupos e sessões
 
-Quantidade e justificativa.
+| Elemento | Valor |
+|----------|--------|
+| Grupos | 4 grupos principais classificados por tipo de falha |
+| Sessões | 1 sessão completa de codificação e análise |
+| Justificativa | Natureza observacional: grupos surgem dos dados, não de manipulação |
 
 ---
 
