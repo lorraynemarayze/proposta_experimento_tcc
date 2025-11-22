@@ -15,12 +15,13 @@ Impacto de Falhas de Software na Segurança Operacional Aeronáutica: Um Experim
 | Versão | Data       | Descrição                     |
 | ------ | ---------- | ----------------------------- |
 | v1.0   | 21/11/2025 | Criação inicial do documento e definição do contexto. |
+| v2.0   | 22/11/2025 | Definição do escopo e objetivo. |
 
 
 ### 1.4 Datas
 
 * Data de criação: 21/11/2025
-* Data da última atualização: 21/11/2025
+* Data da última atualização: 22/11/2025
 
 ### 1.5 Autores
 
@@ -181,23 +182,51 @@ Dessa forma, embora exista uma base teórica extensa sobre segurança de softwar
 
 ### 3.1 Objetivo geral
 
-Definido usando a estrutura GQM.
+![GQM](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/GQM.png)
 
 ### 3.2 Objetivos específicos
 
-O1, O2, O3 – metas claras e mensuráveis.
+![Objetivos específicos](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/objetivos_especificos.png)
+![Identificação de métricas](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/identifica%C3%A7%C3%A3o_metricas.png)
 
 ### 3.3 Questões de pesquisa / negócio
 
-Q1, Q2, Q3 – perguntas que o experimento deve responder.
+Essas são perguntas centrais que o experimento como um todo deve responder:
+
+* **Q1:** Qual é a distribuição da frequência, tipo e causa-raiz das falhas que contribuem para incidentes aeronáuticos relatados nas bases ASRS e ECCAIRS?
+* **Q2:** Quais são os sistemas embarcados, fases de voo e tipos de falha de software que apresentam a maior correlação com o Nível de Criticidade Operacional e exigem mais intervenções manuais da tripulação?
+* **Q3:** Como os achados empíricos sobre os padrões de falha de software podem ser traduzidos em recomendações específicas para a melhoria dos processos de desenvolvimento, verificação e validação (como o DO-178C), visando a redução de vulnerabilidades sistêmicas?
 
 ### 3.4 Métricas (GQM)
 
-Métricas, unidades, definição e fonte dos dados.
+| ID  | Métrica | Unidade | Descrição | Fonte de Dados |
+|------|---------|----------|------------|----------------|
+| **M1**  | Frequência absoluta de falhas de software | Contagem | Número total de incidentes classificados como relacionados a software. | ASRS / ECCAIRS |
+| **M2**  | Proporção percentual de cada categoria de falha | % | Distribuição proporcional das falhas por categoria (lógica, dados, interface, integração). | ASRS / ECCAIRS + Codificação |
+| **M3**  | Incidentes por subsistema aeronáutico | Contagem | Número de incidentes relacionados a FMS, Autopilot, GNSS etc. | ASRS / ECCAIRS |
+| **M4**  | Percentual de falhas por subsistema | % | Proporção percentual das falhas por subsistema aeronáutico. | ASRS / ECCAIRS |
+| **M5**  | Classificação do tipo de falha | Código | Classificação nominal do tipo de falha (lógica, interface, dados, integração). | Codificação manual |
+| **M6**  | Percentual relativo de cada tipo de falha | % | Proporção percentual de cada tipo de falha em relação ao total. | ASRS / ECCAIRS + Codificação |
+| **M7**  | Percentual de incidentes com impacto operacional | % | Incidentes com consequências visíveis (desvio, perda de automação etc.). | ASRS / ECCAIRS |
+| **M8**  | Distribuição das consequências operacionais por tipo de falha | % | Proporção de consequências associadas a cada categoria de falha. | ASRS / ECCAIRS |
+| **M9**  | Severidade média dos incidentes por tipo de falha | Índice | Grau médio de severidade conforme escalas ADREP/ASRS. | ASRS / ECCAIRS |
+| **M10** | Incidentes por fase do voo | Contagem | Quantidade de incidentes por fase (decolagem, cruzeiro, pouso etc.). | ASRS / ECCAIRS |
+| **M11** | Tempo de degradação operacional | Minutos | Duração da anomalia até o retorno à normalidade. | ASRS / ECCAIRS (quando disponível) |
+| **M12** | Probabilidade condicional Falha × Consequência | Probabilidade | P(consequência X / falha Y). | ASRS / ECCAIRS |
+| **M13** | Frequência de cada causa-raiz | Contagem | Quantidade de incidentes atribuídos a erro de lógica, requisito etc. | Codificação manual |
+| **M14** | Percentual relativo de cada causa-raiz | % | Proporção de cada causa-raiz identificada. | Codificação manual |
+| **M15** | Incidentes com contribuição humano–máquina | Contagem | Número de incidentes onde houve interação falha + fator humano. | ASRS / ECCAIRS + Codificação |
+| **M16** | Incidentes com mensagens/alertas ambíguos | % | Proporção de falhas de interface com informação inadequada ao piloto. | ASRS / ECCAIRS + Codificação |
+| **M17** | Consistência da classificação (Cohen’s Kappa) | 0–1 | Grau de concordância entre avaliadores na taxonomia. | Avaliação manual |
+| **M18** | Recorrência dos padrões de falha | Contagem / % | Frequência de padrões críticos após clustering ou codificação axial. | Codificação manual / Análise |
+| **M19** | Prioridade de melhoria (Impacto × Frequência) | Índice | Escore de priorização de vulnerabilidades. | Derivado das métricas anteriores |
+
 
 ---
 
 ## 4. Escopo e Contexto do Experimento
+
+o texto deve incluir o template do escopo conforme visto em sala.
 
 ### 4.1 Escopo funcional / de processo
 
