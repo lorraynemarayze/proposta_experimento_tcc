@@ -18,7 +18,7 @@ Impacto de Falhas de Software na Segurança Operacional Aeronáutica: Um Experim
 | v2.0   | 22/11/2025 | Definição do escopo e objetivo. |
 | v2.1   | 22/11/2025 | Definição dos stakeholders e riscos. |
 | v2.2   | 22/11/2025 | Definição do desenho experimental, hipóteses, variáveis, etc. |
-
+| v2.3   | 22/11/2025 | Definição da população, amostra, instrumentos e plano de análise. |
 
 ### 1.4 Datas
 
@@ -31,7 +31,11 @@ Lorrayne Marayze Silva de Oliveira - Estudante de Engenharia de Software - lorra
 
 ### 1.6 Responsável principal (PI)
 
-Lorrayne Marayze Silva de Oliveira
+Prof. Danilo de Quadros Maia Filho
+
+Papel: Orientador Acadêmico e Supervisor Metodológico
+
+Instituição: Pontifícia Universidade Católica de Minas Gerais
 
 ### 1.7 Projeto / produto relacionado
 
@@ -568,29 +572,49 @@ Ainda que não exista randomização:
 
 ## 10. População, Sujeitos e Amostragem
 
+Este experimento não envolve participantes humanos, portanto a interpretação adequada é que os “sujeitos” são os relatos analisados, e o único operador é o pesquisador.
+
 ### 10.1 População-alvo
 
-Grupo real que se deseja representar.
+A população-alvo corresponde ao conjunto global de:
+* Relatos de incidentes aeronáuticos que envolvem falhas de software, provenientes de sistemas de reporte voluntário (ASRS) e de bases oficiais de estado (ECCAIRS), relacionados à aviação comercial e geral.
 
 ### 10.2 Critérios de inclusão
 
-Requisitos mínimos para participação.
+Um relato será incluído se atender aos seguintes critérios:
+* Contém referência textual explícita ou implícita a falha de software, automação, FMS, Autopilot, sensores digitais, alertas automatizados ou sistemas embarcados.
+* Está completo o suficiente para permitir extração de informações mínimas (fase do voo, tipo de evento).
+* Pertence a uma das bases consideradas: ASRS ou ECCAIRS.
+* Está dentro do intervalo de tempo definido para a coleta.
 
 ### 10.3 Critérios de exclusão
 
-Condições impeditivas.
+Relatos serão excluídos se:
+* Forem duplicados entre as bases.
+* Não houver qualquer evidência de componente de software no evento.
+* Possuírem dados insuficientes para codificação (ex.: relatos completamente vazios).
+* Se referirem exclusivamente a falhas mecânicas, meteorológicas ou humanas sem envolvimento do software.
 
 ### 10.4 Tamanho da amostra
 
-Total e por grupo, com justificativa.
+Como se trata de um estudo observacional:
+* Amostra esperada total: todos os relatos relevantes encontrados.
+* Amostra por grupo (tipo de falha): dependerá da distribuição real (não manipulável).
+
+Toda a população disponível será utilizada, maximizando poder estatístico e robustez, já que não há custo marginal por sujeito adicional.
 
 ### 10.5 Método de seleção
 
-Conveniente, sorteio, convite etc.
+Amostragem por conveniência estruturada, isto é, todos os relatos que atendem aos critérios serão coletados diretamente das bases públicas ASRS e ECCAIRS.
 
 ### 10.6 Treinamento dos sujeitos
 
-Materiais e nivelamento de conhecimento.
+Não aplicável, porque não há participantes humanos.
+
+No entanto, para o operador do experimento:
+* Será utilizado um protocolo de codificação previamente definido.
+* O pesquisador estudará a taxonomia de falhas e exemplos antes de iniciar a codificação real.
+* Será realizado um teste piloto de codificação com 5–10 relatos.
 
 ---
 
@@ -598,19 +622,40 @@ Materiais e nivelamento de conhecimento.
 
 ### 11.1 Instrumentos de coleta
 
-Questionários, logs, planilhas, scripts.
+| Instrumento | Função |
+|-------------|--------|
+| Planilha de codificação (Excel/Google Sheets) | Registrar variáveis, códigos, métricas e atributos extraídos |
+| Script Python | Auxiliar contagem, limpeza e análise quantitativa |
+| Documentos PDF/HTML dos relatos | Fonte primária dos incidentes |
+| Tabela de métricas GQM | Referência para coleta padronizada |
+| Taxonomia de falhas | Guia para classificação sistemática |
 
 ### 11.2 Materiais de suporte
 
-Guias, slides, instruções.
+* Manual de codificação (codebook) com definições das categorias.
+* Guia rápido do protocolo (passo a passo).
+* Modelo da planilha pré-preenchida.
+* Exemplos de codificação corretos.
 
 ### 11.3 Procedimento experimental
 
-Passo a passo completo do experimento.
+![Fluxograma](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/Fluxograma.png)
 
 ### 11.4 Piloto
 
-Escopo, critérios e possíveis ajustes.
+Um piloto será realizado com 10 relatos selecionados aleatoriamente.
+
+**Objetivos:**
+* testar clareza da taxonomia,
+* ajustar categorias,
+* identificar dificuldades,
+* validar consistência da planilha.
+
+**Critérios de ajuste:**
+* redefinição de categorias ambíguas;
+* ajustes no codebook;
+* padronização de termos;
+* revisão de métricas difíceis de coletar.
 
 ---
 
@@ -618,19 +663,72 @@ Escopo, critérios e possíveis ajustes.
 
 ### 12.1 Estratégia geral
 
-Como cada questão será respondida pelos dados.
+Seguiremos com uma abordagem mista (qualitativa e quantitativa) e exploratória. O foco é primeiro quantificar a extensão do problema (Q1), depois avaliar a associação dos fatores (Q2), e, por fim, extrair insights práticos (Q3).
+
+**Q1: Distribuição (Frequência, Tipo e Causa-raiz)**
+* **Questão:** Qual é a distribuição da frequência, tipo e causa-raiz das falhas que contribuem para incidentes aeronáuticos relatados nas bases ASRS e ECCAIRS?
+* **Estratégia:** Esta questão será respondida primariamente por meio da estatística descritiva após a conclusão da codificação manual.
+
+| Passo | Métricas Chave | Método de Análise |
+| :--- | :--- | :--- |
+| Quantificação Bruta | M1, M10 | Contagem de incidentes (`M1`) para determinar o tamanho da amostra de falhas de software. A distribuição por fase de voo (`M10`) será mapeada. |
+| Classificação | M2, M4, M6, M14 | Cálculo de Frequências Absolutas e Percentuais (`M2`, `M6`, `M14`) para cada nível das variáveis nominais (Tipo de Falha, Subsistema, Causa-raiz). Serão criados *gráficos de barras* e *tabelas de contingência* para visualização. |
+| Validação | M17 | O Coeficiente Kappa de Cohen será calculado sobre uma sub-amostra para validar a consistência da codificação manual. |
+
+**Q2: Associação (Fatores, Criticidade e Intervenção)**
+* **Questão:** Quais são os sistemas embarcados, fases de voo e tipos de falha de software que apresentam a maior correlação com o Nível de Criticidade Operacional e exigem mais intervenções manuais da tripulação?
+* **Estratégia:** Esta questão exige o uso da estatística inferencial (Testes de Associação) para validar as hipóteses formuladas e probabilidade condicional.
+
+| Passo | Métricas Chave | Hipótese Relacionada | Método de Análise |
+| :--- | :--- | :--- | :--- |
+| Associação Fator × Resposta | M9, M8 | H1₁, H1₂, H1₃ | Uso de testes não-paramétricos (dada a natureza ordinal/nominal de Severidade, Impacto e Fase do Voo), como o Teste Qui-Quadrado ($\chi^2$) e/ou Teste de Kruskal-Wallis, para verificar se existe associação estatisticamente significativa entre as variáveis independentes (Tipo de Falha, Subsistema, Fase do Voo) e as variáveis dependentes (Severidade, Consequência, Impacto). |
+| **Probabilidade e Risco** | M12 | - | Cálculo de Probabilidades Condicionais ($P(\text{consequência X} \mid \text{falha Y})$) para identificar quais tipos de falha levam, mais frequentemente, às consequências mais críticas (e.g., desvio de rota, perda de controle automático). |
+| Interação Humana | M15, M16 | - | Análise de frequência e proporção de incidentes (`M15`, `M16`) que envolvem falhas na interface homem-máquina, confirmando a relevância do fator humano como mitigador ou agravante da falha de software. |
+
+**Q3: Padrões e Recomendações**
+* **Questão:** Como os achados empíricos sobre os padrões de falha de software podem ser traduzidos em recomendações específicas para a melhoria dos processos de desenvolvimento, verificação e validação (como o DO-178C)?
+* **Estratégia:** Esta é a etapa de **Síntese e Indução**, combinando os resultados quantitativos (Q1 e Q2) com a análise qualitativa das narrativas.
+
+| Passo | Métricas Chave | Método de Análise |
+| :--- | :--- | :--- |
+| Análise de Padrões | M18 | Aplicação de técnicas de Codificação Axial e Agrupamento (Clustering) nas narrativas textuais (qualitativo) para identificar *padrões recorrentes de falha* que transcendem a taxonomia inicial (e.g., "Falha de Lógica + Aproximação + Dados Inconsistentes"). |
+| Priorização de Vulnerabilidades | M19 | Derivar o Índice de Prioridade de Melhoria (`M19`) multiplicando a Frequência da Causa-raiz pela Severidade Média (`M9`). Isso destacará onde o risco é maior (falhas raras, mas catastróficas, ou falhas frequentes, mas leves). |
+| Recomendação | - | Discussão/Análise Indutiva: Tradução dos padrões priorizados e das causas-raiz identificadas em *recomendações específicas de Engenharia de Software*, sugerindo ajustes na ênfase dos processos de desenvolvimento (e.g., reforçar testes de integração, simulação de dados atípicos, refinamento de requisitos de interface). |
 
 ### 12.2 Métodos estatísticos
 
-t-teste, ANOVA, regressão etc.
+| Técnica | Justificativa |
+|---------|----------------|
+| Qui-Quadrado de Independência | Testar associação entre tipo de falha e severidade |
+| Teste G ou Fisher (quando frequências forem baixas) | Alternativa ao Qui-quadrado |
+| Cramér’s V | Medir força da associação |
+| Análise de correlação ordinal (Spearman) | Para severidade e impacto operacional |
+| Clustering (K-modes ou hierárquico) | Identificação de padrões de falha |
+| Estatísticas descritivas completas | Tabelas, proporções, frequências |
 
 ### 12.3 Tratamento de outliers e dados faltantes
 
-Regras definidas antes da execução.
+**Regras:**
+* Se o relato não contiver informação mínima para codificação → excluir da análise.
+* Valores faltantes parciais → registrar como “não informado” (categoria própria).
+* Outliers textuais (relatos extremamente longos ou curtos) → mantidos, pois fazem parte da natureza dos dados.
+* Não remover valores com base em resultado desejado (evitar vieses).
 
 ### 12.4 Análise qualitativa
 
-Codificação, categorias, agrupamento.
+Os dados qualitativos (textos dos relatos) serão analisados usando:
+* Codificação aberta → identificar fragmentos relevantes.
+* Codificação axial → agrupar códigos em categorias de falhas e causas-raiz.
+* Codificação seletiva → identificar temas centrais e padrões recorrentes.
+
+**Ferramentas possíveis:**
+* Planilha manual,
+* Python Script,
+
+**Resultados qualitativos alimentam:**
+* identificação de padrões,
+* refinamento das métricas,
+* explicação dos resultados quantitativos.
 
 ---
 
@@ -771,3 +869,5 @@ Itens que devem estar prontos para iniciar.
 ### 20.2 Aprovações finais
 
 Quem aprova e como o aceite é registrado.
+
+## 21. Referências
