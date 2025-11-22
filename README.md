@@ -1,4 +1,4 @@
-# Trabalho Final: Proposta de Experimento para TCC
+# Plano de Experimento – Scoping e Planejamento
 
 ## 1. Identificação Básica
 
@@ -16,6 +16,7 @@ Impacto de Falhas de Software na Segurança Operacional Aeronáutica: Um Experim
 | ------ | ---------- | ----------------------------- |
 | v1.0   | 21/11/2025 | Criação inicial do documento e definição do contexto. |
 | v2.0   | 22/11/2025 | Definição do escopo e objetivo. |
+| v2.1   | 22/11/2025 | Definição dos stakeholders e riscos. |
 
 
 ### 1.4 Datas
@@ -226,27 +227,99 @@ Essas são perguntas centrais que o experimento como um todo deve responder:
 
 ## 4. Escopo e Contexto do Experimento
 
-o texto deve incluir o template do escopo conforme visto em sala.
+Analisar os relatos de incidentes aeronáuticos envolvendo falhas de software com o propósito de caracterizar, classificar e quantificar padrões de falhas e seus efeitos operacionais com respeito à frequência, tipologia, causas-raiz, severidade e impacto operacional sobre a tripulação e os sistemas embarcados do ponto de vista de pesquisadores e engenheiros de software no contexto de relatos provenientes das bases ASRS e ECCAIRS, referentes à aviação comercial e geral.
 
 ### 4.1 Escopo funcional / de processo
 
-O que está incluído e excluído.
+**Incluído (In Scope)**
+
+O experimento abrange:
+
+* Análise de relatos textuais de incidentes envolvendo falhas atribuídas a software embarcado.
+* Classificação das falhas segundo taxonomias definidas (lógica, dados, interface, integração etc.).
+* Identificação de causas-raiz, tipos de falha, subsistemas afetados, fase do voo e consequências operacionais.
+* Aplicação de métricas GQM definidas previamente.
+* Codificação manual para análise qualitativa para detecção de padrões.
+* Avaliação de severidade e impacto operacional com base em ADREP/ASRS.
+* Análise estatística básica (correlações, frequências, probabilidades condicionais).
+* Extração de padrões e priorização de recomendações de engenharia.
+
+**Excluído (Out of Scope)**
+
+O experimento não inclui:
+
+* Análise de incidentes sem componente de software.
+* Testes laboratoriais, simulações em bancos de ensaio ou instrumentação real.
+* Avaliação em nível de código-fonte ou auditoria de requisitos.
+* Dados confidenciais ou proprietários de fabricantes.
+* Inferências sobre desempenho de aeronaves específicas ou modelos comerciais.
 
 ### 4.2 Contexto do estudo
 
-Organização, projeto, criticidade, experiência dos participantes.
+O experimento será conduzido no contexto de um estudo acadêmico experimental desenvolvido como parte da disciplina Medição e Experimentação, do curso de graduação da PUC Minas. Trata-se de uma atividade de pesquisa aplicada que antecede o Trabalho de Conclusão de Curso (TCC).
+
+**Organização do estudo**
+
+* O experimento não está associado a empresas, órgãos reguladores ou instituições aeronáuticas.
+* Trata-se de um projeto acadêmico independente, cujo objetivo é aprender, aplicar e avaliar métodos de medição e experimentação em Engenharia de Software usando dados reais.
+
+**Natureza do Projeto**
+
+* O estudo segue o modelo GQM (Goal–Question–Metric).
+* A abordagem é empírica e exploratória, permitindo identificar padrões de falhas relatadas em bases públicas.
+* A experimentação será feita com análise combinada qualitativa e quantitativa.
+* O estudo utiliza como artefatos bases textuais disponíveis publicamente (ASRS e ECCAIRS), aplicadas como dataset.
+
+**Experiência dos participantes**
+
+* A análise será realizada por um pesquisador iniciante, sem formação prévia em segurança aeronáutica.
+* O conhecimento em Engenharia de Software irá guiar as análises. 
+* Conhecimentos serão adquiridos durante o processo, baseando-se em taxonomias e referências documentadas.
+
+**Criticidade**
+
+* Embora o domínio aeronáutico seja de alta criticidade, o estudo não tem impacto operacional real, pois lida apenas com dados públicos e agregados.
+* A análise busca compreender padrões de falhas relatadas, sem emitir conclusões técnicas sobre sistemas específicos ou fabricantes.
+
+**Ambiente da pesquisa**
+
+* Análise conduzida em ambiente acadêmico, com ferramentas convencionais de apoio à codificação.
+* Não há infraestrutura especial nem acesso privilegiado a dados sensíveis.
 
 ### 4.3 Premissas
 
-Condições consideradas verdadeiras.
+Para o experimento, assume-se que:
+
+* Os relatos fornecidos pelas bases ASRS e ECCAIRS são fidedignos, ainda que baseados em auto-relato.
+* É possível identificar e classificar falhas de software a partir dos textos.
+* O período de coleta escolhido contém volume suficiente de incidentes relevantes.
+* A taxonomia de falhas definida é adequada para o domínio.
+* As métricas GQM podem ser avaliadas com os dados disponíveis.
+* A análise qualitativa, mesmo considerando a variação de interpretação, permite detectar padrões significativos.
 
 ### 4.4 Restrições
 
-Tempo, orçamento, ferramentas, acessos etc.
+O estudo está sujeito às seguintes limitações operacionais:
+
+* Tempo limitado para codificação manual dos relatos.
+* Acesso restrito a dados apenas das bases públicas.
+* Orçamento inexistente, impedindo compra de ferramentas avançadas.
+* Escopo textual, sem possibilidade de validar tecnicamente falhas reais nos sistemas.
+* Dependência do conteúdo disponível, algumas variáveis podem não estar presentes em todos os relatos.
 
 ### 4.5 Limitações previstas
 
-Limitações à generalização dos resultados.
+**Limitações metodológicas**
+
+* Dados são baseados em auto-relato e podem ser incompletos ou subjetivos.
+* Relatos podem conter ambiguidades que dificultam inferência sobre a falha real.
+* A codificação manual introduz variabilidade humana (reduzida com Cohen’s Kappa).
+
+**Limitações da generalização**
+
+* Não é possível generalizar conclusões para todos os fabricantes, todas as aeronaves ou todas as operações.
+* Falhas relatadas não representam necessariamente a incidência real, apenas a incidência percebida e reportada.
+* Não há acesso aos detalhes técnicos dos sistemas embarcados, limitando inferências profundas.
 
 ---
 
@@ -254,15 +327,60 @@ Limitações à generalização dos resultados.
 
 ### 5.1 Stakeholders principais
 
-Grupos impactados ou interessados.
+Os principais grupos interessados ou impactados pelo experimento são:
+
+* **Estudante/pesquisador(a):**
+Responsável pela condução do experimento, análise e documentação dos resultados.
+
+* **Professor da disciplina “Medição e Experimentação” (PUC Minas):**
+Interessados na correta aplicação dos métodos de medição, experimentação e análise empírica.
+
+* **Instituição de ensino (PUC Minas):**
+Beneficiária da produção acadêmica, e consolidação do processo de aprendizagem.
+
+* **Comunidade acadêmica em Engenharia de Software:**
+Interessada em estudos sobre falhas de software em sistemas críticos e aplicação de GQM.
+
+* **Profissionais de software com interesse em sistemas críticos:**
+Podem se beneficiar das recomendações geradas para processos de desenvolvimento, verificação e validação.
 
 ### 5.2 Expectativas
 
-O que cada stakeholder espera obter.
+**Pesquisador(a)**
+* Aprender e aplicar a abordagem GQM na prática.
+* Desenvolver habilidades em codificação qualitativa e análise de métricas.
+* Produzir um experimento reprodutível e bem documentado.
+
+**Professor)**
+* Verificar o domínio dos conceitos de experimentação.
+* Avaliar a qualidade da definição de objetivos, métricas e análise.
+* Garantir alinhamento com o conteúdo da disciplina.
+
+**Instituição de ensino**
+* Obter evidências de aprendizagem aplicada.
+* Estimular a produção de experimentos empíricos.
+
+**Comunidade acadêmica**
+* Acesso a resultados que ilustram padrões de falhas de software em sistemas críticos.
+* Possibilidade de replicar ou expandir o estudo.
+
+**Profissionais da área**
+* Obter insights sobre vulnerabilidades, causas recorrentes e oportunidades de melhoria.
+* Aplicação de recomendações no contexto de engenharia de software crítico.
 
 ### 5.3 Impactos no processo/produto
 
-Consequências esperadas na operação e no produto.
+**Impactos no processo**
+* Consolidação de um processo de análise empírica baseado em GQM.
+* Melhoria na capacidade de definir métricas alinhadas a objetivos concretos.
+* Expansão do conhecimento sobre codificação de dados não estruturados.
+* Desenvolvimento de competências metodológicas para experimentos futuros.
+
+**Impactos no produto**
+* Relatório estruturado com resultados claros e replicáveis.
+* Taxonomia aplicada às falhas de software aeronáuticas.
+* Conjunto de métricas que pode ser reutilizado em estudos posteriores.
+* Identificação de padrões e possíveis recomendações preliminares.
 
 ---
 
@@ -270,15 +388,37 @@ Consequências esperadas na operação e no produto.
 
 ### 6.1 Riscos de alto nível
 
-Riscos técnicos e de negócio.
+**Riscos técnicos**
+* Volume insuficiente de dados úteis nas bases selecionadas.
+* Dificuldade de interpretação dos relatos devido à linguagem técnica.
+* Baixa consistência na codificação de falhas.
+* Possível ambiguidade ou falta de detalhe nos dados públicos.
+
+**Riscos de projeto/negócio**
+* Tempo limitado para realizar codificação manual e análise.
+* Escopo excessivo para o período da experimentação.
+* Dependência de ferramentas gratuitas que podem limitar análises avançadas.
 
 ### 6.2 Critérios de sucesso
 
-Condições de go / no-go.
+O experimento será considerado bem-sucedido se:
+* Os objetivos definidos no GQM forem atendidos.
+* Todas as perguntas forem respondidas com base em métricas definidas.
+* A codificação for realizada com consistência suficiente para análise.
+* O relatório final apresentar clareza, reprodutibilidade e coerência metodológica.
+* As principais categorias de falha forem identificadas e quantificadas.
+* As conclusões forem justificadas com evidências extraídas dos dados.
+
+Esses critérios funcionarão como condições go/no-go para validação do experimento.
 
 ### 6.3 Critérios de parada antecipada
 
-Situações para adiar ou cancelar antes da execução.
+A execução poderá ser suspensa ou revista caso:
+* O volume de relatos disponíveis seja insuficiente para análise estatística mínima.
+* A codificação manual se mostre inviável dentro do período da experimentação.
+* Haja inconsistência grave na taxonomia que inviabilize a classificação.
+* O pesquisador não consiga interpretar adequadamente os relatos (necessitando redefinir abordagem).
+* Ferramentas essenciais deixarem de funcionar ou não forem compatíveis com os dados.
 
 ---
 
