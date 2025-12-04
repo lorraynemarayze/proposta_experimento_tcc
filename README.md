@@ -21,6 +21,7 @@ Impacto de Falhas de Software na Segurança Operacional Aeronáutica: Um Experim
 | v2.3   | 22/11/2025 | Definição da população, amostra, instrumentos e plano de análise. |
 | v3.0   | 04/12/2025 | Avaliação de validade, ética e orçamento. |
 | v3.1   | 04/12/2025 | Definição do cronograma, documentação e governança. |
+| v3.2   | 04/12/2025 | Critérios de prontidão. |
 
 ### 1.4 Datas
 
@@ -957,15 +958,31 @@ Para que outra pessoa consiga repetir o experimento, será disponibilizado:
 
 ### 19.1 Públicos e mensagens-chave
 
-O que cada grupo precisa saber.
+| Público                                       | Mensagem-chave                                                                                                    |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Orientador**                                | Informações sobre o andamento do experimento, dificuldades encontradas, entregas concluídas e pedidos de revisão. |
+| **Pesquisador**                       | Execução do experimento, atualização sobre cronograma, registros de mudanças e orientações recebidas.                                      |
+| **Avaliador secundário**                      | Instruções para a codificação da amostra destinada ao cálculo do Kappa e prazos.                                  |
+| **Leitores finais (professor e avaliadores)** | Acesso ao relatório final, resultados obtidos e materiais suplementares.                                          |
+
 
 ### 19.2 Canais e frequência
 
-E-mail, reuniões, Slack/Teams etc.
+| Canal                                                  | Uso                                                                               | Frequência                               |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------- | ---------------------------------------- |
+| **E-mail**                                             | Envio de versões do documento, dúvidas específicas e alinhamento com o orientador | 1 vez por semana ou conforme necessidade |
+| **Reuniões presenciais** | Revisão das etapas e avançamento           | Reuiões semanais |
+| **GitHub**                                             | Armazenamento de arquivos, scripts e versionamento                                | Atualização contínua                     |
+
 
 ### 19.3 Comunicação obrigatória
 
-Eventos que exigem aviso formal.
+- Conclusão do piloto de codificação.
+- Mudanças no codebook ou na taxonomia.
+- Problemas críticos que impactem o cronograma.
+- Finalização da codificação completa.
+- Disponibilização do relatório final no GitHub.
+- Entrega oficial do experimento (versão final).
 
 ---
 
@@ -973,10 +990,23 @@ Eventos que exigem aviso formal.
 
 ### 20.1 Checklist de prontidão
 
-Itens que devem estar prontos para iniciar.
+ - Taxonomia de falhas definida.
+ - Codebook validado após leitura de exemplos.
+ - Planilha de codificação criada com todas as colunas necessárias.
+ - Acesso às bases ASRS e ECCAIRS.
+ - Scripts básicos configurados.
+ - Cronograma ajustado.
+ - Repositório Git organizado com pastas iniciais (/dados, /scripts, /templates).
+ - Aprovação do orientador sobre escopo e metodologia.
+ - Piloto planejado e preparado para execução.
 
 ### 20.2 Aprovações finais
 
-Quem aprova e como o aceite é registrado.
+| Etapa                               | Responsável pela aprovação | Forma de registro                               |
+| ----------------------------------- | -------------------------- | ----------------------------------------------- |
+| Definição da metodologia            | Orientador                 | Registro por e-mail     |
+| Liberação para codificação completa | Orientador                 | Confirmação por e-mail              |
+| Aceite do documento final           | Orientador e Banca       | Registro presencial no dia da apresentação |
+
 
 ## 21. Referências
