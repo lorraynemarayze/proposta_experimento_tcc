@@ -1022,8 +1022,9 @@ Para que outra pessoa consiga repetir o experimento, será disponibilizado:
  - Codebook validado após leitura de exemplos.
  - Planilha de codificação criada com todas as colunas necessárias.
  - Acesso às bases ASRS e ECCAIRS.
+ - Critérios de inclusão/exclusão testados na busca (query) para validar volume de dados.
  - Scripts básicos configurados.
- - Cronograma ajustado.
+ - Cronograma ajustado com margem para codificação.
  - Repositório Git organizado com pastas iniciais (/dados, /scripts, /templates).
  - Aprovação do orientador sobre escopo e metodologia.
  - Piloto planejado e preparado para execução.
