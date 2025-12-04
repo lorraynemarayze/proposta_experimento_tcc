@@ -191,11 +191,11 @@ Dessa forma, embora exista uma base teórica extensa sobre segurança de softwar
 
 ### 3.1 Objetivo geral
 
-![GQM](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/GQM.png)
+![GQM](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/imagens/GQM.png)
 
 ### 3.2 Objetivos específicos
 
-![Objetivos específicos](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/objetivos_especificos.png)
+![Objetivos específicos](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/imagens/objetivos_especificos.png)
 
 
 | Identificador | Métrica                                                                 | Descrição                                                                                          | Unidade        |
@@ -670,7 +670,7 @@ No entanto, para o operador do experimento:
 
 ### 11.3 Procedimento experimental
 
-![Fluxograma](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/Fluxograma.png)
+![Fluxograma](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/imagens/Fluxograma.png)
 
 ### 11.4 Piloto
 
