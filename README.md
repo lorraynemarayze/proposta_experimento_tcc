@@ -20,6 +20,7 @@ Impacto de Falhas de Software na Segurança Operacional Aeronáutica: Um Experim
 | v2.2   | 22/11/2025 | Definição do desenho experimental, hipóteses, variáveis, etc. |
 | v2.3   | 22/11/2025 | Definição da população, amostra, instrumentos e plano de análise. |
 | v3.0   | 04/12/2025 | Avaliação de validade, ética e orçamento. |
+| v3.1   | 04/12/2025 | Definição do cronograma, documentação e governança. |
 
 ### 1.4 Datas
 
@@ -843,15 +844,52 @@ Como todos os recursos utilizados são gratuitos ou já disponíveis para estuda
 
 ### 16.1 Macrocronograma
 
-Datas e marcos principais.
+| Etapa                                       | Descrição                                                     | Período       |
+| ------------------------------------------- | ------------------------------------------------------------- | ------------- |
+| **E1 – Revisão e refinamento da taxonomia** | Ajustar categorias de falhas e elaborar o codebook            | Semana 1      |
+| **E2 – Coleta inicial dos relatos**         | Baixar, filtrar e organizar os relatos das bases ASRS/ECCAIRS | Semana 2      |
+| **E3 – Piloto de codificação**              | Codificar 10 relatos de teste e ajustar critérios             | Semana 3      |
+| **E4 – Codificação completa**               | Leitura e classificação de todos os relatos selecionados      | Semanas 4 e 5 |
+| **E5 – Validação da codificação (Kappa)**   | Avaliação por segundo codificador em pequena amostra          | Semana 6      |
+| **E6 – Análise estatística e qualitativa**  | Cálculo de métricas, frequências, testes e padrões            | Semana 7      |
+| **E7 – Redação dos resultados**             | Construção das tabelas, figuras e discussão                   | Semanas 8 e 9 |
+| **E8 – Revisão final e ajustes**            | Revisão do documento e conclusão do experimento               | Semana 10     |
 
 ### 16.2 Dependências
 
-Tarefas que dependem de outras.
+As etapas do experimento não podem ser realizadas isoladamente; algumas dependem diretamente da conclusão de outras:
+
+- Codificação completa (E4) só pode começar após:
+
+  - definição final da taxonomia,
+  
+  - realização do piloto,
+  
+  - ajustes no codebook.
+
+- Análise estatística (E6) depende:
+
+  - da codificação finalizada e validada.
+
+- Redação dos resultados (E7) depende:
+
+  - da conclusão das análises quantitativas e qualitativas.
+
+- Validação com Kappa (E5) depende:
+
+  - do piloto devidamente ajustado e da planilha organizada.
+
 
 ### 16.3 Riscos operacionais
 
-Contingências e planos de ação.
+| Risco                                         | Impacto                            | Mitigação                                                                 |
+| --------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------- |
+| **Volume de relatos menor que o esperado**    | Amostra insuficiente para análises | Ampliar período de coleta ou incluir mais filtros de busca                |
+| **Dificuldade de interpretar alguns relatos** | Classificação inconsistente        | Criar categoria “não informado” e adaptar examples no codebook            |
+| **Tempo insuficiente para codificação**       | Atraso no cronograma               | Dividir codificação por partes diárias e priorizar relatos mais completos |
+| **Falhas em ferramentas (planilha/Python)**   | Perda de progresso ou atrasos      | Criar backups semanais e manter cópias locais                             |
+| **Baixa concordância no Kappa**               | Necessidade de revisar categorias  | Ajustar o codebook e realizar novo piloto, se necessário                  |
+
 
 ---
 
@@ -859,15 +897,29 @@ Contingências e planos de ação.
 
 ### 17.1 Papéis e responsabilidades
 
-Quem decide, executa, revisa e é informado.
+| Papel                                      | Responsabilidades                                                                                  |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| **Pesquisador principal**                  | Executa todas as etapas: coleta, codificação, análise, documentação e controle de versões.         |
+| **Orientador**                             | Revisa decisões principais, fornece feedback metodológico e valida o alinhamento com a disciplina. |
+| **Avaliador secundário**                   | Realiza a codificação de uma pequena amostra para cálculo do Kappa.                                |
+| **Leitores externos (colegas, professor)** | Podem revisar o documento final e sugerir ajustes.                                                 |
+
 
 ### 17.2 Ritos de acompanhamento
 
-Checkpoints, reuniões e revisões.
+Para garantir que o experimento siga o planejamento e se mantenha organizado, serão adotados os seguintes ritos:
+
+- Revisões com o orientador: Discussão dos avanços, dificuldades e próximos passos.
+- Checkpoint após o piloto: Avaliação final da taxonomia antes da codificação completa.
+- Revisão ao final da codificação: Confirmação de que todos os dados estão corretos na planilha.
+- Revisão final: Leitura completa do relatório para verificar consistência entre resultados e conclusões.
 
 ### 17.3 Controle de mudanças
 
-Como mudanças são solicitadas, aprovadas e registradas.
+1. Registrar a mudança desejada (ex.: nova categoria, ajuste de métrica).
+2. Avaliar impacto no protocolo e nas etapas já realizadas.
+3. Registrar a mudança no histórico do documento.
+4. Aplicar a mudança apenas dali em diante, evitando reprocessar dados já finalizados, exceto quando essencial.
 
 ---
 
@@ -875,15 +927,29 @@ Como mudanças são solicitadas, aprovadas e registradas.
 
 ### 18.1 Repositórios e nomeação
 
-Onde ficam documentos, scripts e dados.
+Toda a documentação e scripts estarão organizados da seguinte forma:
+
+- **Repositório do GitHub:** armazenará o README, o plano de experimento, scripts e planilhas.
+- **Pasta /dados:** contendo relatos brutos e planilhas de codificação.
+- **Pasta /scripts:** scripts Python usados para limpeza e análise.
+- **Pasta /resultados:** tabelas, gráficos e arquivos gerados.
+- **Pasta /dados/templates:** templates usados.
 
 ### 18.2 Templates
 
-Modelos usados e sua localização.
+- **Planilha de codificação:** com colunas para todas as variáveis definidas no GQM.
+- **Template de tabela de métricas:** para facilitar o cálculo e conferência.
+- **Modelo de relatório (TCC):** contendo seções padrões (introdução, métodos, análise, conclusão).
 
 ### 18.3 Empacotamento para replicação
 
-Como deixar organizado para futuras replicações.
+Para que outra pessoa consiga repetir o experimento, será disponibilizado:
+
+- Codebook completo, explicando todas as categorias da taxonomia.
+- Planilha modelo, com exemplos do piloto.
+- Scripts Python, com instruções de uso.
+- Versão congelada dos dados, com instruções para baixar relatos atualizados.
+- README com passo a passo, incluindo: como rodar as análises, como organizar novos dados, quais ferramentas usar, etc.
 
 ---
 
