@@ -196,7 +196,35 @@ Dessa forma, embora exista uma base teórica extensa sobre segurança de softwar
 ### 3.2 Objetivos específicos
 
 ![Objetivos específicos](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/objetivos_especificos.png)
-![Identificação de métricas](https://github.com/lorraynemarayze/proposta_experimento_tcc/blob/main/identifica%C3%A7%C3%A3o_metricas.png)
+
+
+| Identificador | Métrica                                                                 | Descrição                                                                                          | Unidade        |
+|---------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|----------------|
+| M1.1          | Frequência absoluta de incidentes relacionados a falhas de software     |                                                                                                      | Contagem       |
+| M1.2          | Proporção percentual de cada categoria de falha no total de incidentes  |                                                                                                      | %              |
+| M1.3          | Número de incidentes associados a cada subsistema (FMS, Autopilot, etc.)|                                                                                                      | Contagem       |
+| M1.4          | Percentual de falhas por subsistema aeronáutico                         |                                                                                                      | %              |
+| M1.5          | Classificação do tipo de falha (e.g., lógica, interface, dados, integração)|                                                                                                   | Código         |
+| M1.6          | Percentual relativo de cada tipo de falha                               |                                                                                                      | %              |
+| M2.1          | Percentual de incidentes que resultaram em algum impacto operacional visível |                                                                                                  | %              |
+| M2.2          | Distribuição percentual das consequências por tipo de falha             |                                                                                                      | %              |
+| M2.3          | Severidade média dos incidentes por tipo de falha segundo ADREP/ASRS    |                                                                                                      | Índice         |
+| M2.4          | Número de incidentes por fase do voo (decolagem, pouso, etc.)           |                                                                                                      | Contagem       |
+| M2.5          | Tempo estimado de degradação operacional e retorno à normalidade        |                                                                                                      | Minutos        |
+| M2.6          | Probabilidade condicional entre o tipo de falha e tipo de consequência operacional |                                                                                                 | Probabilidade  |
+| M3.1          | Frequência de cada causa-raiz de falha (e.g., lógica, requisito, dados) |                                                                                                      | Contagem       |
+| M3.2          | Percentual relativo de cada causa-raiz identificada                     |                                                                                                      | %              |
+| M3.3          | Quantidade de incidentes em que mensagens, alertas ou indicações foram consideradas ambíguas ou confusas |                                                          | Contagem       |
+| M3.4          | Porcentagem de incidentes em que mensagens foram ambíguas               |                                                                                                      | %              |
+| M3.5          | Comparação da frequência de falhas entre operação geral e comercial     |                                                                                                      | Contagem       |
+| M3.6          | Severidade média comparada por tipo de operação (Geral vs Comercial)    |                                                                                                      | Índice         |
+| M4.1          | Número de categorias obtidas após codificação aberta (taxonomia inicial)|                                                                                                      | Contagem       |
+| M4.2          | Confiabilidade interavaliadores nas falhas (Cohen’s Kappa)              |                                                                                                      | 0–1            |
+| M4.3          | Percentual de incidentes cobertos pela análise final                    |                                                                                                      | %              |
+| M4.4          | Número médio de incidentes por categoria na taxonomia                   |                                                                                                      | Média          |
+| M4.5          | Distribuição temporal anual dos incidentes relacionados a software      |                                                                                                      | Contagem/ano   |
+| M4.6          | Tendência temporal medida via regressão                                 |                                                                                                      | Coeficiente    |
+
 
 ### 3.3 Questões de pesquisa / negócio
 
