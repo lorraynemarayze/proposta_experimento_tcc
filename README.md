@@ -19,11 +19,12 @@ Impacto de Falhas de Software na Segurança Operacional Aeronáutica: Um Experim
 | v2.1   | 22/11/2025 | Definição dos stakeholders e riscos. |
 | v2.2   | 22/11/2025 | Definição do desenho experimental, hipóteses, variáveis, etc. |
 | v2.3   | 22/11/2025 | Definição da população, amostra, instrumentos e plano de análise. |
+| v3.0   | 04/12/2025 | Avaliação de validade, ética e orçamento. |
 
 ### 1.4 Datas
 
 * Data de criação: 21/11/2025
-* Data da última atualização: 22/11/2025
+* Data da última atualização: 04/12/2025
 
 ### 1.5 Autores
 
@@ -736,23 +737,39 @@ Os dados qualitativos (textos dos relatos) serão analisados usando:
 
 ### 13.1 Validade de conclusão
 
-Ameaças e mitigação.
+As principais ameaças e como serão tratadas:
+
+- **Tamanho da amostra:** Como o experimento depende da quantidade de relatos com falhas de software encontrados nas bases ASRS e ECCAIRS, pode ser que alguns tipos de falha apareçam pouco. Para mitigar isso, será usada toda a amostra disponível e serão evitadas conclusões para grupos com poucos casos.
+- **Consistência na codificação:** Como há interpretação humana, é possível que códigos variem. Para reduzir isso, haverá um teste Kappa para medir concordância.
+- **Uso de testes estatísticos adequados:** Como muitas variáveis são nominais ou ordinais, serão usados testes que não exigem distribuição normal, como o Spearman. 
 
 ### 13.2 Validade interna
 
-Causas alternativas e controle.
+- **Ausência de manipulação:** O estudo é observacional e não permite controlar fatores como tipo de aeronave, experiência do piloto, além do que pode ser inferido a partir do detalhamento do relato. Para mitigar, esses elementos serão tratados como variáveis de confusão e relatados como limitações.
+
+- **Interpretação subjetiva dos relatos:** A leitura e codificação dependem do entendimento do pesquisador. Para reduzir esse efeito, o piloto ajudará a alinhar a interpretação e padronizar critérios.
+
+- **Diferença entre as bases ASRS e ECCAIRS:** Como elas usam estruturas distintas, existe risco de distorção. Isso será reduzido registrando a origem de cada relato e analisando eventuais diferenças.
 
 ### 13.3 Validade de constructo
 
-Aderência das métricas ao conceito medido.
+- **Taxonomia de falhas:** A classificação foi criada com base em literatura de Engenharia de Software e sistemas críticos, mas ainda pode não capturar todos os tipos reais de falhas. Por isso, ela será ajustada após o piloto se surgir alguma categoria ambígua ou nova.
+
+- **Métricas GQM:** As métricas selecionadas estão alinhadas com os objetivos e perguntas do estudo, mas algumas dependem da clareza do relato. Isso será tratado com a categoria “não informado” para evitar interpretar onde não há evidência.
+
+- **Severidade e consequências:** Como as bases já possuem padrões para isso, há boa aderência, mas nem todos os relatos preenchem esses campos. Nesses casos, a métrica será registrada como faltante.
 
 ### 13.4 Validade externa
 
-Generalização dos achados.
+- **Generalização limitada:** Os dados vêm apenas de relatos voluntários (ASRS) e relatórios oficiais (ECCAIRS). Eles não representam todos os incidentes, apenas os que foram reportados. Os resultados não podem ser generalizados para todas as aeronaves ou fabricantes.
+
+- **Variação regional:** Como as bases refletem diferentes culturas e práticas de reporte, os padrões observados podem ser influenciados pela região. Isso será reconhecido como limitação.
+
+- **Dependência do texto:** O estudo se baseia no que foi descrito pelo piloto ou investigador. Isso significa que falhas de software podem ser subnotificadas.
 
 ### 13.5 Resumo
 
-Ameaças mais críticas e ações de mitigação.
+As ameaças mais críticas são: interpretação subjetiva dos relatos, diferenças entre bases de dados e possível falta de relatos suficientes para algumas categorias. Para mitigar, serão usados piloto, validação com Kappa, registros explícitos de “não informado”, testes estatísticos adequados e análise cuidadosa das limitações.
 
 ---
 
@@ -760,19 +777,22 @@ Ameaças mais críticas e ações de mitigação.
 
 ### 14.1 Questões éticas
 
-Pressão, incentivos, uso de estudantes.
+O experimento utiliza apenas relatos públicos das bases ASRS e ECCAIRS, que já são anonimizados de origem. Não existem participantes humanos no sentido tradicional, nem coleta de informações privadas. De qualquer forma, é importante garantir que nenhum relato seja usado para tentar identificar indivíduos, empresas ou modelos específicos de aeronave. O estudo tem finalidade exclusivamente acadêmica.
 
 ### 14.2 Consentimento informado
 
-Forma de comunicação e registro.
+Como não há interação com pessoas e os dados já são disponibilizados publicamente pelas próprias instituições mantenedoras, o consentimento informado não é aplicável. Os autores dos relatos voluntários já aceitam termos de uso ao enviá-los para o sistema oficial.
 
 ### 14.3 Privacidade e proteção de dados
 
-Anonimização, acesso e retenção.
+- Os dados analisados permanecem públicos e anonimizados.
+- Nenhuma informação sensível será armazenada fora das planilhas de trabalho do experimento.
+- Não serão coletados nomes, matrículas de aeronaves ou informações operacionais sigilosas.
+- A análise será feita apenas em textos já públicos, seguindo as diretrizes de uso do ASRS e do ECCAIRS.
 
 ### 14.4 Aprovações necessárias
 
-Comitê de ética, jurídico, DPO etc.
+Por se tratar de um trabalho acadêmico que usa dados públicos e não envolve seres humanos, não é necessário submeter o projeto ao comitê de ética da instituição. 
 
 ---
 
@@ -780,19 +800,42 @@ Comitê de ética, jurídico, DPO etc.
 
 ### 15.1 Recursos humanos
 
-Pessoas e papéis.
+- **Pesquisador principal:** responsável pela coleta dos relatos, codificação, análise e documentação dos resultados.
+- **Avaliador secundário (quando necessário):** usado para validar parte da codificação e calcular o Kappa.
+
+Não há necessidade de equipe adicional, pois o experimento é de pequeno porte.
 
 ### 15.2 Infraestrutura técnica
 
-Ambientes, servidores, ferramentas.
+Os recursos necessários são:
+
+- Computador para o pesquisador.
+- Acesso à internet para consultar ASRS e ECCAIRS.
+- Planilhas (Google Sheets ou Excel).
+- Python será usado para análises estatísticas e organização dos dados.
+- Nenhum servidor, máquina virtual ou ambiente especializado é necessário.
 
 ### 15.3 Materiais e insumos
 
-Licenças, dispositivos, documentos.
+- Planilha de codificação criada pelo próprio pesquisador.
+- Codebook (manual de codificação).
+- Documentação pública das bases ASRS/ECCAIRS.
+- Jupyter Notebook
+  
+Não há necessidade de softwares pagos ou licenças especiais.
 
 ### 15.4 Orçamento estimado
 
-Custos principais e fonte.
+Como todos os recursos utilizados são gratuitos ou já disponíveis para estudantes da universidade, o orçamento é praticamente zero.
+
+| Item                         | Custo         |
+| ---------------------------- | ------------- |
+| Planilhas (Google/Excel)     | R$ 0,00       |
+| Acesso às bases ASRS/ECCAIRS | R$ 0,00       |
+| Ferramentas Python           | R$ 0,00       |
+| Computador pessoal           | Já disponível |
+| Total estimado               | **R$ 0,00**   |
+
 
 ---
 
