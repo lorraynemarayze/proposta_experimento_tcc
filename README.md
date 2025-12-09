@@ -1,6 +1,7 @@
 # Plano de Experimento – Scoping e Planejamento
 
-## 1. Identificação Básica
+## 1. Identificação Básica 
+
 
 ### 1.1 Título do experimento
 
@@ -1039,3 +1040,14 @@ Para que outra pessoa consiga repetir o experimento, será disponibilizado:
 
 
 ## 21. Referências
+
+NATALE, Marco; POLLINI, Lorenzo. Embedded software in avionics: a review. Annual Reviews in Control, v. 36, p. 227–238, 2012.
+
+SRINIVASAN, J. Software Faults in Avionics Systems: Causes and Mitigation Strategies. Journal of Aerospace Information Systems, v. 12, n. 3, p. 213–225, 2015.
+
+RTCA. DO-178C – Software Considerations in Airborne Systems and Equipment Certification. Washington, DC: RTCA, 2011.
+
+LEVESON, Nancy. Engineering a Safer World: Systems Thinking Applied to Safety. Cambridge: MIT Press, 2012.
+
+LEVESON, Nancy. Safeware: System Safety and Computers. Reading: Addison-Wesley, 1995.
+
